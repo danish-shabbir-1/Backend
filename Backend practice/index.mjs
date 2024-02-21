@@ -1,8 +1,13 @@
-import express  from "express";
-import routes from "./routes/index.mjs"
+import  express  from "express";
+import routes from './routes'
 
 const app = express()
 
-app.listen(3001 , function () {
-    console.log('The server is running at port 3001');
+// console is code se chalta rhe ga
+
+app.listen( 3001 , function () {
+    console.log('Server is running at port 3001');
 })
+
+// Use method Post, Put, Get, Delete sb kelie use hota ha
+
