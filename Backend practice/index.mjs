@@ -11,3 +11,4 @@ app.listen( 3001 , function () {
 
 // Use method Post, Put, Get, Delete sb kelie use hota ha
 
+app.use('/', routes)
