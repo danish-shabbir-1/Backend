@@ -30,5 +30,11 @@ router.post('/add', (req, res) => {
     res.send({ message: 'product added successfully'});
 });
 
+// product/update
+
+router.put('/update' , (req , res) => {
+    console.log('req', req.body);
+    res.send({ message: 'product updated successfully'} , data);
+})
 
 export default router
