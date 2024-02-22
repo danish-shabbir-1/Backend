@@ -16,4 +16,19 @@ router.get('/single' , (req , res) => {
     res.send({massasge : 'Single Product fetched successfully' , data})
 })
 
+// product/:id
+
+router.get('/:id' , (req , res) => {
+    console.log('request' , req.params.id);
+    res.send({massage : 'Single Product fetched successfully with id' , data : data[0]})
+})
+
+// product/add
+
+router.post('/add', (req, res) => {
+    console.log('req', req);
+    res.send({ message: 'product added successfully' });
+});
+
+
 export default router
