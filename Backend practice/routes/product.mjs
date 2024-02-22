@@ -26,8 +26,8 @@ router.get('/:id' , (req , res) => {
 // product/add
 
 router.post('/add', (req, res) => {
-    console.log('req', req);
-    res.send({ message: 'product added successfully' });
+    console.log('req', req.body);
+    res.send({ message: 'product added successfully'});
 });
 
 
