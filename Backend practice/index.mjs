@@ -9,5 +9,7 @@ app.listen( 3001 , () => {
     console.log('Server is running at port 3001');
 })
 
+app.use(express.json())
+
 // Use method Post, Put, Get, Delete sb kelie use hota ha
 app.use('/', routes);
