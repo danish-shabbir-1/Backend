@@ -7,7 +7,13 @@ const data = [{ "id": 1, "title": "iPhone 9", "description": "An apple mobile wh
 // get all product in api
 
 router.get('/' , (req , res) => {
-    res.send({ massasge : 'Single Product fetched successfully', data })
+    res.send({ massasge : 'All Product fetched successfully', data })
+})
+
+// get single product in api
+
+router.get('/single' , (req , res) => {
+    res.send({massasge : 'Single Product fetched successfully' , data})
 })
 
 export default router
