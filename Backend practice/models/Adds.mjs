@@ -4,20 +4,20 @@ const { Schema } = mongoose;
 
 
 const addSchema = new Schema({
-   Title : {
-    type : String,
-    required : true
-   },
-   Description : {
-    type : String,
-    required : true
-   },
-   Amount : {
-    type : Number,
-    required : true
-   }
+   Title: {
+      type: String,
+      required: true
+  },
+  Description: {
+      type: String,
+      required: true
+  },
+  Amount: {
+      type: Number,
+      required: true
+  },
   });
 
-  const Adds = mongoose.model('add', addSchema)
+  const Adds = mongoose.model('Adds', addSchema)
 
   export default Adds;
