@@ -6,7 +6,7 @@ const router = express.Router();
 router.post("/post", async (req, res) => {
   try {
     const addItemInDb = await adds(req.body);
-    addItemInDb.save()
+    await addItemInDb.save()
     res.send({ massage: "Product Added Succesfully" });
   } catch (error) {
     res.send({ massage: e.massage });
