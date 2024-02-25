@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 
-const addSchema = new Schema({
+const AddSchema = new Schema({
    Title: {
       type: String,
       required: true
@@ -18,6 +18,6 @@ const addSchema = new Schema({
   },
   });
 
-  const Adds = mongoose.model('Adds', addSchema)
+  const Adds = mongoose.model('Adds', AddSchema)
 
   export default Adds;
