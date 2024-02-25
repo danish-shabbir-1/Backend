@@ -10,31 +10,6 @@ router.get('/' , (req , res) => {
     res.send({ massasge : 'All Product fetched successfully', data })
 })
 
-// get single product in api
 
-router.get('/single' , (req , res) => {
-    res.send({massasge : 'Single Product fetched successfully' , data})
-})
-
-// product/:id
-
-router.get('/:id' , (req , res) => {
-    console.log('request' , req.params.id);
-    res.send({massage : 'Single Product fetched successfully with id' , data : data[0]})
-})
-
-// product/add
-
-router.post('/add', (req, res) => {
-    console.log('req', req.body);
-    res.send({ message: 'product added successfully'});
-});
-
-// product/update
-
-router.put('/update' , (req , res) => {
-    console.log('req', req.body);
-    res.send({ message: 'product updated successfully'} , data);
-})
 
 export default router
