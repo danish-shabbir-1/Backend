@@ -1,16 +1,18 @@
-import express from "express";
-import adds from "../models/Adds.mjs";
+import express from 'express'
+import Adds from '../models/Adds.mjs'
+const router = express.Router()
 
-const router = express.Router();
 
 router.post("/post", async (req, res) => {
-  try {
-    const addItemInDb = await adds(req.body);
-    await addItemInDb.save()
+    try{
+      let ad = new Adds(req.body);
+
+    await ad.save();
+    
     res.send({ massage: "Product Added Succesfully" });
-  } catch (error) {
-    res.send({ massage: e.massage });
-  }
+    }catch(e){
+      console.log(e);
+    }
 });
 
-export default router;
+export default router
