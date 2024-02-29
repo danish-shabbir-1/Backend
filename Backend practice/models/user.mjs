@@ -7,7 +7,7 @@ const registerSchema = new Schema({
         type : String,
         required : true,
     },
-    Pass  : {
+    pass  : {
         type : String,
         required : true,
     },
@@ -17,6 +17,6 @@ const registerSchema = new Schema({
     }
 })
 
-const RegisterUser = mongoose.model('User' , registerSchema)
+const RegisterUser = mongoose.model('users' , registerSchema)
 
 export default RegisterUser
