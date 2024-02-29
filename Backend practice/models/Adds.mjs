@@ -18,6 +18,6 @@ const AddSchema = new Schema({
   },
   });
 
-  const Adds = mongoose.model('Adds', AddSchema)
+  const Adds = mongoose.model('adds', AddSchema)
 
   export default Adds;
