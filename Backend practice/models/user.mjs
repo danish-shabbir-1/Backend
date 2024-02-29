@@ -17,6 +17,6 @@ const registerSchema = new Schema({
     }
 })
 
-const registerUser = mongoose.model('User' , registerSchema)
+const RegisterUser = mongoose.model('User' , registerSchema)
 
-export default registerUser
+export default RegisterUser
