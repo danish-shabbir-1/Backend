@@ -11,8 +11,12 @@ const registerSchema = new Schema({
         type : String,
         required : true,
     },
-    email : {
+    fullname : {
         type : String,
         required : true,
     }
 })
+
+const registerUser = mongoose.model('User' , registerSchema)
+
+export default registerUser
