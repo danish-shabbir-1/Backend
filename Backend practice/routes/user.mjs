@@ -1,16 +1,17 @@
 import express from "express";
-import User from '../models/User.mjs'
+import user from '../models/userInfo.mjs'
 const router = express.Router()
 
 
-router.get('/', (req, res) => {
-    console.log(req.body);
-    res.send({massage : 'check Succesfull'})
+router.get('/' , async (req, res) => {
+    const getUserData = await user.find()
+    res.send({massage : 'product fetched succesfully', data : getUserData})
 })
+
 
 router.post('/register', async (req, res) => {
     try {
-        let userInfo = new User(req.body)
+        let userInfo = new user(req.body)
         console.log(userInfo);
         await userInfo.save();
         res.send({massage : 'User Register Succesfull'})
@@ -19,5 +20,6 @@ router.post('/register', async (req, res) => {
     }
 
 })
+
 
 export default router
