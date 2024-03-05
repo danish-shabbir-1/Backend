@@ -16,7 +16,7 @@ router.post('/register', async (req, res) => {
         await userInfo.save();
         res.send({massage : 'User Register Succesfull'})
     } catch (e) {
-        console.log(e.massage);
+        res.send({ massage : e.massage});
     }
 
 })
