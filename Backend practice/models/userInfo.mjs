@@ -1,25 +1,40 @@
 import mongoose from "mongoose";
-import bcrypt from 'bcryptjs'
+import bcrypt from "bcryptjs";
 const { Schema } = mongoose;
 
-
 const registerSchema = new Schema({
-    email : {
-        type: String,
-        required: true,
-        unique: true
-    },
-    pass  : {
-        type : String,
-        required : true,
-        minLength: 6
-    },
-    fullname : {
-        type : String,
-        required : true,
-    }
-})
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  pass: {
+    type: String,
+    required: true,
+    minLength: 6,
+  },
+  fullname: {
+    type: String,
+    required: true,
+  },
+});
 
-const RegisterUser = mongoose.model('users' , registerSchema)
+registerSchema.pre("save", function (next) {
+  const user = this;
+  const salt = bcrypt.genSaltSync(10);
+  const hash = bcrypt.hashSync(user.pass, salt);
 
-export default RegisterUser
+  user.pass = hash
+
+  next()
+});
+
+registerSchema.method.comparepass = function (pass) {
+    const user = this 
+    console.log(user);
+    return bcrypt.compareSync(pass, user.pass)
+}
+
+const RegisterUser = mongoose.model("users", registerSchema);
+
+export default RegisterUser;
