@@ -1,5 +1,6 @@
 import express from "express";
 import user from '../models/userInfo.mjs'
+import RegisterUser from "../models/userInfo.mjs";
 const router = express.Router()
 
 
@@ -15,8 +16,8 @@ router.post('/register', async (req, res) => {
         console.log(userInfo);
         await userInfo.save();
         res.send({massage : 'User Register Succesfull'})
-    } catch (e) {
-        res.send({ massage : e.massage});
+    } catch (error) {
+        res.send({ massage : error.massage});
     }
 
 })
@@ -25,14 +26,25 @@ router.put('/login' , async (req, res) => {
     const {email, pass} = req.body
 
     // 1. step check if email exist
-    const user = await user.findOne({email})
 
-    if (!user) {
+    const checkEmail = await user.findOne({ email })
+    
+    if (!checkEmail) {
         res.status(404).send({massage : 'Email not found!'})
         return
     }
+    
+    // \step 2. compare password
+
+    const isCorrectpass = checkEmail.comparePassword(pass)
+
+    if (!isCorrectpass) {
+        res.status(404).send({ massage : 'Password is incorect!'})
+        return
+    }
+
     res.send({massage : 'user login succesfully'})
 })
-
+ 
 
 export default router
