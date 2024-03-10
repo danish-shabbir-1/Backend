@@ -36,7 +36,7 @@ router.put('/login' , async (req, res) => {
     
     // \step 2. compare password
 
-    const isCorrectpass = checkEmail.comparePassword(pass)
+    const isCorrectpass = checkEmail.comparepass(pass)
 
     if (!isCorrectpass) {
         res.status(404).send({ massage : 'Password is incorect!'})
