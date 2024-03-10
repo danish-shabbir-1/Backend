@@ -29,11 +29,9 @@ registerSchema.pre("save", function (next) {
   next()
 });
 
-registerSchema.method.comparepass = function (pass) {
+registerSchema.methods.comparepass = function (pass) {  
     const user = this 
-    console.log('user-->', user);
-    console.log('pass-->', pass);
-    console.log('user.passss-->', user.pass);
+    
     return bcrypt.compareSync(pass, user.pass)
 }
 
