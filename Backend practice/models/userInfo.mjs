@@ -35,6 +35,11 @@ registerSchema.methods.comparepass = function (pass) {
     return bcrypt.compareSync(pass, user.pass)
 }
 
+registerSchema.methods.genrateToken = function () {
+  const { _id } = this
+  var token = jwt.sign(_id, );
+}
+
 const RegisterUser = mongoose.model("users", registerSchema);
 
 export default RegisterUser;
