@@ -14,7 +14,7 @@ async function verifyToken(req,res, next) {
         const decoded = jwt.verify(token, jwtSecret);
 
         // Check if the token's signature is valid but not necessarily if it exists in the database
-        req.userId = decoded._id;
+        req.userId = decoded.uid;
         req.tokenToRemove = token;
 
         next();

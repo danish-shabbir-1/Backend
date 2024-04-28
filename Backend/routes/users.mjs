@@ -62,6 +62,7 @@ router.put("/login", async (req, res) => {
 
 router.put('/logout', verifyToken, async (req, res) => {
   await Users.findByIdAndUpdate(req.userId, { $pull: { tokens: req.tokenToRemove } })
+  console.log(req.userId);
   res.send({ message: 'Logged out successfully!' })
 })
 
