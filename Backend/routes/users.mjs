@@ -27,6 +27,8 @@ router.put("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    console.log(req.body)
+
     // Step 1: Check if email exists
     
     const user = await Users.findOne({ email });
@@ -49,9 +51,8 @@ router.put("/login", async (req, res) => {
     const token = user.generateToken();
 
     user.tokens.push(token);
-
     await user.save();
-
+    
     // Send a success response
     res.status(200).send({ message: "Authentication successful!", token });
   } catch (err) {
